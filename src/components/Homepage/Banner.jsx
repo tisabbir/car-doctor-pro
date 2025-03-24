@@ -36,15 +36,13 @@ const Banner = () => {
       <div className="carousel w-full">
         {banners.map((banner, index) => (
           <div
-            style={{
-              backgroundImage: `linear-gradient(45deg,rgba(7,25,82,0.7), rgba(0,0,0,0.3),  url(/assets/images/banner/${
-                index + 1
-              }.jpg)`,
-            }}
-            key={index}
-            id={`slide${index + 1}`}
-            className="carousel-item relative w-full h-[90vh] bg-top rounded-xl bg-no-repeat"
-          >
+          style={{
+            backgroundImage: `linear-gradient(45deg, rgba(7,25,82,0.7), rgba(0,0,0,0.3)), url('/assets/images/banner/${index + 1}.jpg')`,
+          }}
+          key={index}
+          id={`slide${index + 1}`}
+          className="carousel-item relative w-full h-[90vh] bg-top rounded-xl bg-no-repeat bg-cover"
+        >
             <div className="ml-24 mt-24   max-w-2xl space-y-3">
               <h1 className="text-6xl text-white font-bold">{banner.title}</h1>
 
