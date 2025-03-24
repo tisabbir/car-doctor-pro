@@ -3,6 +3,29 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Navbar = () => {
+  const navItems = [
+    {
+      title: "Home",
+      path: "/"
+    },
+    {
+      title: "About",
+      path: "/about"
+    },
+    {
+      title: "Services",
+      path: "/services"
+    },
+    {
+      title: "Blog",
+      path: "/blog"
+    },
+    {
+      title: "Contact",
+      path: "/contact"
+    },
+
+  ]
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
@@ -53,27 +76,13 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link href="/">Item 1</Link>
-            </li>
-            <li>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <Link href="#">Submenu 1</Link>
-                  </li>
-                  <li>
-                    <Link href="#">Submenu 2</Link>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <Link href="#">Item 3</Link>
-            </li>
-          </ul>
+          <div className="flex gap-6">
+            {
+              navItems.map((item)=>(
+                <Link href={item.path} key={item.path}>{item.title}</Link>
+              ))
+            }
+          </div>
         </div>
         <div className="navbar-end">
           <Link href="#">
