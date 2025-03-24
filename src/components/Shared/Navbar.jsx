@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
@@ -14,67 +16,72 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {" "}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                />
               </svg>
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Item 1</a>
+                <Link href="/">Item 1</Link>
               </li>
               <li>
-                <a>Parent</a>
+                <Link href="#">Parent</Link>
                 <ul className="p-2">
                   <li>
-                    <a>Submenu 1</a>
+                    <Link href="#">Submenu 1</Link>
                   </li>
                   <li>
-                    <a>Submenu 2</a>
+                    <Link href="#">Submenu 2</Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <a>Item 3</a>
+                <Link href="#">Item 3</Link>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <Link href="/">
+            <Image src="/assets/logo.svg" alt="logo" height={50} width={100} />
+          </Link>
         </div>
+
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Item 1</a>
+              <Link href="/">Item 1</Link>
             </li>
             <li>
               <details>
                 <summary>Parent</summary>
                 <ul className="p-2">
                   <li>
-                    <a>Submenu 1</a>
+                    <Link href="#">Submenu 1</Link>
                   </li>
                   <li>
-                    <a>Submenu 2</a>
+                    <Link href="#">Submenu 2</Link>
                   </li>
                 </ul>
               </details>
             </li>
             <li>
-              <a>Item 3</a>
+              <Link href="#">Item 3</Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <Link href="#">
+            <button className="btn">Button</button>
+          </Link>
         </div>
-      </div>    </div>
+      </div>
+    </div>
   );
 };
 
