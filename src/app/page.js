@@ -1,11 +1,11 @@
+import HomePage from "@/components/Homepage/HomePage";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>Hello Car Doctor
+    <div>
+      <HomePage />
 
-
-      <button className="btn btn-primary ">Button</button>
     </div>
   );
 }
