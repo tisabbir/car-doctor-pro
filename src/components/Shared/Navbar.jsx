@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { IoBagOutline } from "react-icons/io5";
+import { IoIosSearch } from "react-icons/io";
 
 const Navbar = () => {
   const navItems = [
@@ -47,28 +49,16 @@ const Navbar = () => {
                 />
               </svg>
             </div>
-            <ul
+            <div
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <Link href="/">Item 1</Link>
-              </li>
-              <li>
-                <Link href="#">Parent</Link>
-                <ul className="p-2">
-                  <li>
-                    <Link href="#">Submenu 1</Link>
-                  </li>
-                  <li>
-                    <Link href="#">Submenu 2</Link>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <Link href="#">Item 3</Link>
-              </li>
-            </ul>
+              {
+              navItems.map((item)=>(
+                <Link className="hover:text-primary" href={item.path} key={item.path}>{item.title}</Link>
+              ))
+            }
+            </div>
           </div>
           <Link href="/">
             <Image src="/assets/logo.svg" alt="logo" height={50} width={100} />
@@ -79,14 +69,16 @@ const Navbar = () => {
           <div className="flex gap-6">
             {
               navItems.map((item)=>(
-                <Link href={item.path} key={item.path}>{item.title}</Link>
+                <Link className="hover:text-primary" href={item.path} key={item.path}>{item.title}</Link>
               ))
             }
           </div>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end gap-6 items-center">
+        <IoBagOutline className="text-2xl" />
+        <IoIosSearch className="text-2xl" />
           <Link href="#">
-            <button className="btn">Button</button>
+            <button className="btn text-primary border-2 border-primary">Appointment</button>
           </Link>
         </div>
       </div>
