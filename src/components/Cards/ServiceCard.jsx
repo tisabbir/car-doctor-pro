@@ -1,23 +1,16 @@
+import Image from "next/image";
 import React from "react";
 
-const ServiceCard = () => {
+const ServiceCard = ({service}) => {
   return (
     <div>
       <div className="card bg-base-100 w-96 shadow-sm">
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
+        <Image src={service.img} alt="image" width={400} height={320} />
         <div className="card-body">
-          <h2 className="card-title">Card Title</h2>
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
+          <h2 className="card-title">{service.title}</h2>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
+            <p className="text-lg text-primary">Price ${service.price}</p>
+            <button className="btn btn-primary text-white">See More</button>
           </div>
         </div>
       </div>
