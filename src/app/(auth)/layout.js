@@ -1,9 +1,10 @@
 import React from 'react';
 import "../globals.css"
+import AuthNavbar from '@/components/Shared/AuthNavbar';
 export default function SignUpLayout({ children }) {
     return (
       <div>
-        <h1>Sign Up Nav</h1>
+        <AuthNavbar />
         {children}
       </div>
     );

@@ -5,27 +5,27 @@ import Image from "next/image";
 import { IoBagOutline } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
 
-const Navbar = () => {
+const AuthNavbar = () => {
   const navItems = [
     {
-      title: "Home",
-      path: "/"
+      title: "Order",
+      path: "/order"
     },
     {
-      title: "About",
-      path: "/about"
+      title: "Order Review",
+      path: "/orderreview"
     },
     {
-      title: "Services",
-      path: "/services"
+      title: "Manage Inventory",
+      path: "/manageinventory"
     },
     {
-      title: "Blog",
-      path: "/blog"
+      title: "Login",
+      path: "/login"
     },
     {
-      title: "Contact",
-      path: "/contact"
+      title: "Sign Up",
+      path: "/signup"
     },
 
   ]
@@ -75,16 +75,9 @@ const Navbar = () => {
             }
           </div>
         </div>
-        <div className="navbar-end gap-6 items-center">
-        <IoBagOutline className="text-2xl" />
-        <IoIosSearch className="text-2xl" />
-          <Link href="#">
-            <button className="btn text-primary border-2 border-primary">Appointment</button>
-          </Link>
-        </div>
       </div>
     </div>
   );
 };
 
-export default Navbar;
+export default AuthNavbar;
