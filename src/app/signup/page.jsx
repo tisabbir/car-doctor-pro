@@ -29,6 +29,10 @@ const page = () => {
           <legend className="fieldset-legend text-left">Confirm Email</legend>
           <input type="email" className="input  w-full" placeholder="Confirm Your Email" />
         </fieldset>
+        <fieldset className="fieldset">
+          <legend className="fieldset-legend text-left">Password</legend>
+          <input type="password" className="input  w-full" placeholder="Password" />
+        </fieldset>
         <button className="btn btn-primary text-white w-full mt-6">Sign Up</button>
         </form>
         <p>Or Sign Up With</p>

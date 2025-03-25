@@ -15,29 +15,25 @@ const page = () => {
         />
       </div>
       <div className="border p-20 rounded-lg text-center space-y-4">
-        <h1 className="text-4xl text-center">Sign Up</h1>
+        <h1 className="text-4xl text-center">Login</h1>
         <form action="">
-        <fieldset className="fieldset">
-          <legend className="fieldset-legend text-left">Name</legend>
-          <input type="text" className="input w-full" placeholder="Your Name" />
-        </fieldset>
         <fieldset className="fieldset">
           <legend className="fieldset-legend text-left">Email</legend>
           <input type="email" className="input  w-full" placeholder="Your Email" />
         </fieldset>
         <fieldset className="fieldset">
-          <legend className="fieldset-legend text-left">Confirm Email</legend>
-          <input type="email" className="input  w-full" placeholder="Confirm Your Email" />
+          <legend className="fieldset-legend text-left">Password</legend>
+          <input type="password" className="input  w-full" placeholder="Enter Your Password" />
         </fieldset>
-        <button className="btn btn-primary text-white w-full mt-6">Sign Up</button>
+        <button className="btn btn-primary text-white w-full mt-6">Login</button>
         </form>
-        <p>Or Sign Up With</p>
+        <p>Or Login With</p>
         <div className="flex gap-4 justify-center">
             <FaFacebook className="text-2xl" />
             <FaLinkedin className="text-2xl" />
             <FaGithub className="text-2xl" />
         </div>
-        <p>Already have an account? <Link href={'/login'} className="text-primary">Login</Link> </p>
+        <p>Don't have an account? <Link href={'/signup'} className="text-primary">Sign Up</Link> </p>
       </div>
     </div>
   );
