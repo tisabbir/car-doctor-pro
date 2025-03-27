@@ -9,6 +9,12 @@ const page = () => {
   const handleSubmit =(e)=>{
     e.preventDefault();
     alert("Form Submitted.....")
+    const newUser = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      password: e.target.password.value
+    }
+    console.log(newUser)
   }
 
   return (
@@ -26,11 +32,11 @@ const page = () => {
         <form onSubmit={handleSubmit} action="">
         <fieldset className="fieldset">
           <legend className="fieldset-legend text-left">Name</legend>
-          <input type="text" className="input w-full" placeholder="Your Name" />
+          <input name="name" type="text" className="input w-full" placeholder="Your Name" />
         </fieldset>
         <fieldset className="fieldset">
           <legend className="fieldset-legend text-left">Email</legend>
-          <input type="email" className="input  w-full" placeholder="Your Email" />
+          <input name="email" type="email" className="input  w-full" placeholder="Your Email" />
         </fieldset>
         <fieldset className="fieldset">
           <legend className="fieldset-legend text-left">Confirm Email</legend>
@@ -38,7 +44,7 @@ const page = () => {
         </fieldset>
         <fieldset className="fieldset">
           <legend className="fieldset-legend text-left">Password</legend>
-          <input type="password" className="input  w-full" placeholder="Password" />
+          <input name="password" type="password" className="input  w-full" placeholder="Password" />
         </fieldset>
         <button type="submit" className="btn btn-primary text-white w-full mt-6">Sign Up</button>
         </form>
