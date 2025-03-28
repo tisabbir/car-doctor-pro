@@ -6,16 +6,39 @@ import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const page = () => {
 
-  const handleSubmit =(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Form Submitted.....")
+    
     const newUser = {
       name: e.target.name.value,
       email: e.target.email.value,
       password: e.target.password.value
+    };
+  
+    try {
+      const resp = await fetch("http://localhost:3000/signup/api", {
+        method: "POST",
+        body: JSON.stringify(newUser),
+        headers: {
+          "Content-Type": "application/json" // Fix: Capital 'C' in Content-Type
+        }
+      });
+  
+      const result = await resp.json(); // Always parse the JSON response
+      console.log("Server response:", result); // Debugging
+  
+      if (!resp.ok) {
+        throw new Error(result.error || "Failed to sign up");
+      }
+  
+      alert("Signup successful!");
+      e.target.reset();
+      
+    } catch (error) {
+      console.error("Signup failed:", error);
+      alert(`Error: ${error.message}`); // Show actual error to user
     }
-    console.log(newUser)
-  }
+  };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-4 my-24 items-center">
