@@ -1,8 +1,7 @@
 import NextAuth from "next-auth/next";
-import { CredentialsProvider } from "next-auth/providers";
+import CredentialsProvider from "next-auth/providers/credentials";
 
-const handler = async () =>
-  NextAuth({
+const handler = NextAuth({
     session: {
       strategy: "jwt",
       maxAge: 30 * 24 * 60 * 60,
