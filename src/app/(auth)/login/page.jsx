@@ -4,8 +4,10 @@ import Link from "next/link";
 import React from "react";
 import { signIn } from "next-auth/react";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 const page = () => {
+  const router = useRouter();
   const handleLogin = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -15,7 +17,9 @@ const page = () => {
       password,
       redirect: false,
     });
-    console.log(resp)
+    if(resp.status === 200){
+      router.push('/')
+    }
   };
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-4 my-24 items-center">

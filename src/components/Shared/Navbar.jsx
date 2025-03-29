@@ -88,7 +88,7 @@ const Navbar = () => {
         <IoBagOutline className="text-2xl" />
         <IoIosSearch className="text-2xl" />
           {
-            !session ? <Link href="/login">
+            !session.data ? <Link href="/login">
             <button className="btn text-primary border-2 border-primary">Login</button>
           </Link> : 
             <button onClick={()=> signOut()} className="btn text-warning border-2 border-warning">Logout</button>
