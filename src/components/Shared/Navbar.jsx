@@ -1,11 +1,16 @@
-
+"use client"
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { IoBagOutline } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
+import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
+
+  const session = useSession();
+  console.log(session)
+
   const navItems = [
     {
       title: "Home",
@@ -82,9 +87,13 @@ const Navbar = () => {
         <div className="navbar-end gap-6 items-center">
         <IoBagOutline className="text-2xl" />
         <IoIosSearch className="text-2xl" />
-          <Link href="#">
-            <button className="btn text-primary border-2 border-primary">Appointment</button>
-          </Link>
+          {
+            !session ? <Link href="/login">
+            <button className="btn text-primary border-2 border-primary">Login</button>
+          </Link> : 
+            <button onClick={()=> signOut()} className="btn text-warning border-2 border-warning">Logout</button>
+          
+          }
         </div>
       </div>
     </div>
