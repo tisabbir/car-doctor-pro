@@ -10,7 +10,7 @@ const page = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const resp = signIn("credentials", {
+    const resp = await signIn("credentials", {
       email,
       password,
       redirect: false,
