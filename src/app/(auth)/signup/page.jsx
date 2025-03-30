@@ -1,4 +1,5 @@
 'use client'
+import SocialSignin from "@/components/Shared/SocialSignin";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -72,11 +73,7 @@ const page = () => {
         <button type="submit" className="btn btn-primary text-white w-full mt-6">Sign Up</button>
         </form>
         <p>Or Sign Up With</p>
-        <div className="flex gap-4 justify-center">
-            <FaFacebook className="text-2xl" />
-            <FaLinkedin className="text-2xl" />
-            <FaGithub className="text-2xl" />
-        </div>
+        <SocialSignin />
         <p>Already have an account? <Link href={'/login'} className="text-primary">Login</Link> </p>
       </div>
     </div>
