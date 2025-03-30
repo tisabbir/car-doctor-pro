@@ -1,10 +1,10 @@
-'use client'
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { signIn } from "next-auth/react";
-import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import SocialSignin from "@/components/Shared/SocialSignin";
 
 const page = () => {
   const router = useRouter();
@@ -17,8 +17,8 @@ const page = () => {
       password,
       redirect: false,
     });
-    if(resp.status === 200){
-      router.push('/')
+    if (resp.status === 200) {
+      router.push("/");
     }
   };
   return (
@@ -52,16 +52,15 @@ const page = () => {
               placeholder="Enter Your Password"
             />
           </fieldset>
-          <button type="submit" className="btn btn-primary text-white w-full mt-6">
+          <button
+            type="submit"
+            className="btn btn-primary text-white w-full mt-6"
+          >
             Login
           </button>
         </form>
         <p>Or Login With</p>
-        <div className="flex gap-4 justify-center">
-          <FaFacebook className="text-2xl" />
-          <FaLinkedin className="text-2xl" />
-          <FaGithub className="text-2xl" />
-        </div>
+        <SocialSignin />
         <p>
           Don't have an account?{" "}
           <Link href={"/signup"} className="text-primary">
