@@ -1,10 +1,16 @@
+'use client'
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { FaFacebook, FaGithub, FaGoogle, FaLinkedin } from "react-icons/fa";
 
 const SocialSignin = () => {
+    const router = useRouter()
   const handleSocialSignIn = async (provider) => {
     const resp = await signIn(provider)
+    if(resp.status === "authenticated"){
+        router.push('/')
+    }
   };
   return (
     <div>
