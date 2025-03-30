@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,37 +7,35 @@ import { IoIosSearch } from "react-icons/io";
 import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
-
   const session = useSession();
-  console.log(session)
+  console.log(session);
 
   const navItems = [
     {
       title: "Home",
-      path: "/"
+      path: "/",
     },
     {
       title: "About",
-      path: "/about"
+      path: "/about",
     },
     {
       title: "Services",
-      path: "/services"
+      path: "/services",
     },
     {
       title: "Blog",
-      path: "/blog"
+      path: "/blog",
     },
     {
       title: "Contact",
-      path: "/contact"
+      path: "/contact",
     },
     {
       title: "Login",
-      path: "/login"
+      path: "/login",
     },
-
-  ]
+  ];
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
@@ -63,11 +61,15 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
-              {
-              navItems.map((item)=>(
-                <Link className="hover:text-primary" href={item.path} key={item.path}>{item.title}</Link>
-              ))
-            }
+              {navItems.map((item) => (
+                <Link
+                  className="hover:text-primary"
+                  href={item.path}
+                  key={item.path}
+                >
+                  {item.title}
+                </Link>
+              ))}
             </div>
           </div>
           <Link href="/">
@@ -77,23 +79,39 @@ const Navbar = () => {
 
         <div className="navbar-center hidden lg:flex">
           <div className="flex gap-6">
-            {
-              navItems.map((item)=>(
-                <Link className="hover:text-primary" href={item.path} key={item.path}>{item.title}</Link>
-              ))
-            }
+            {navItems.map((item) => (
+              <Link
+                className="hover:text-primary"
+                href={item.path}
+                key={item.path}
+              >
+                {item.title}
+              </Link>
+            ))}
           </div>
         </div>
         <div className="navbar-end gap-6 items-center">
-        <IoBagOutline className="text-2xl" />
-        <IoIosSearch className="text-2xl" />
-          {
-            !session.data ? <Link href="/login">
-            <button className="btn text-primary border-2 border-primary">Login</button>
-          </Link> : 
-            <button onClick={()=> signOut()} className="btn text-warning border-2 border-warning">Logout</button>
-          
-          }
+          <IoBagOutline className="text-2xl" />
+          <IoIosSearch className="text-2xl" />
+
+          {!session.data ? (
+            <Link href="/login">
+              <button className="btn text-primary border-2 border-primary">
+                Login
+              </button>
+            </Link>
+          ) : (
+            <div className="flex gap-4">
+
+              <Image className="rounded-full" alt={session?.data?.user?.name} src={session?.data?.user?.image} height={50} width={50} />
+              <button
+                onClick={() => signOut()}
+                className="btn text-warning border-2 border-warning"
+              >
+                Logout
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
